@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Recursos | TerraVoid</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <!-- Header fijo -->
+  <header class="header">
+    <div class="menu-icon" onclick="toggleMenu()">☰</div>
+    <div class="logo-container">
+      <img src="imagen/terravoid_text.png" alt="TerraVoid" class="logo-img">
+    </div>
+  </header>
+
+  <!-- Menú lateral -->
+  <nav id="side-menu" class="side-menu">
+    <ul>
+      <li><span class="icon">🏠</span> <a href="index.html">Inicio</a></li>
+      <li><span class="icon">👥</span> <a href="quienes.html">Quiénes somos</a></li>
+      <li><span class="icon">⭐</span> <a href="roles.html">Roles</a></li>
+      <li><span class="icon">📂</span> <a href="recursos.html">Recursos</a></li>
+      <li><span class="icon">💬</span> <a href="discord.html">Discord</a></li>
+      <li><span class="icon">👑</span> <a href="fundadores.html">Fundadores</a></li>
+    </ul>
+  </nav>
+
+  <!-- Contenido -->
+  <main class="page-section">
+    <h2>Recursos</h2>
+    <p>Aquí encontrarás enlaces, documentos y materiales útiles para la comunidad de TerraVoid.</p>
+
+    <section class="resources-container">
+      <!-- Card Guías -->
+      <article class="resource-card">
+        <h3>📘 Fabric mods</h3>
+        <p>Este mini modpack es para jugar con mas calidad de vida con Fabric, selecciona tu version:</p>
+        <select id="guia-select" class="resource-select">
+          <option value="archivos/fabric_modpack_1.21.8.zip">1.21.8</option>
+          <option value="archivos/fabric_modpack_1.21.5.zip">1.21.5</option>
+          <option value="archivos/fabric_modpack_1.21.1.zip">1.21.1</option>
+          <option value="archivos/fabric_modpack_1.20.4.zip">1.20.4</option>
+          <option value="archivos/fabric_modpack_1.20.1.zip">1.20.1</option>
+        </select>
+        <a id="guia-download" href="archivos/fabric_modpack_1.21.8.zip" class="resource-download" download>⬇ Descargar</a>
+      </article>
+    </section>
+  </main>
+
+  <script src="js/script.js"></script>
+  <script>
+    // ✅ JS para actualizar el enlace de descarga según selección
+document.getElementById("guia-download").addEventListener("click", function(e) {
+  e.preventDefault(); // evita navegación
+  const select = document.getElementById("guia-select");
+  const archivo = select.value;
+
+  const link = document.createElement("a");
+  link.href = archivo;
+  link.download = archivo.split("/").pop(); // extrae el nombre del archivo
+  document.body.appendChild(link);
+  link.click();
+  document.body.removeChild(link);
+});
+  </script>
+</body>
+</html>
