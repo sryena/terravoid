@@ -38,32 +38,41 @@
         <h3>📘 Fabric mods</h3>
         <p>Este mini modpack es para jugar con mas calidad de vida con Fabric, selecciona tu version:</p>
         <select id="guia-select" class="resource-select">
-          <option value="archivos/fabric_modpack_1.21.8.zip">1.21.8</option>
-          <option value="archivos/fabric_modpack_1.21.5.zip">1.21.5</option>
-          <option value="archivos/fabric_modpack_1.21.1.zip">1.21.1</option>
-          <option value="archivos/fabric_modpack_1.20.4.zip">1.20.4</option>
-          <option value="archivos/fabric_modpack_1.20.1.zip">1.20.1</option>
+          <option value="https://drive.google.com/file/d/11qXzK534f3SK5FYZE77B2MjROctmppcs/view?usp=drive_link">1.21.8</option>
+          <option value="https://drive.google.com/file/d/11SoRnbSYJm_u-IuwiCmQGllGYezaqcAi/view?usp=drive_link">1.21.5</option>
+          <option value="https://drive.google.com/file/d/1pIXAcN4NIrT56UhM6H1epkr0bXgcfKn4/view?usp=drive_link">1.21.1</option>
+          <option value="https://drive.google.com/file/d/1C4CwKot5v71ShVUMGbjkNEuOwnYkofWg/view?usp=drive_link">1.20.4</option>
+          <option value="https://drive.google.com/file/d/1bMd9dHa6lS-LzCywRO92m4u18qtFZDB8/view?usp=drive_link">1.20.1</option>
         </select>
-        <a id="guia-download" href="archivos/fabric_modpack_1.21.8.zip" class="resource-download" download>⬇ Descargar</a>
+        <a id="guia-download" href="https://drive.google.com/file/d/11qXzK534f3SK5FYZE77B2MjROctmppcs/view?usp=drive_link" class="resource-download" download>⬇ Descargar</a>
+      </article>
+
+      <article class="resource-card">
+        <h3>✨ Armor Trims Effects</h3>
+        <p>Este Datapack hecho por el fundador YenaLc, añade una utilidad no decorativa a los Trims de armaduras, añade efectos dependiendo el material que se use en la armadura, selecciona tu version:</p>
+        <select id="guia-select" class="resource-select">
+          <option value="https://drive.google.com/file/d/1hpa4_0pPRyQo9X_6Uz5HR5s7QCpxrjLC/view?usp=sharing">1.21.8</option>
+        </select>
+        <a id="guia-download" href="https://drive.google.com/file/d/1hpa4_0pPRyQo9X_6Uz5HR5s7QCpxrjLC/view?usp=sharing" class="resource-download" download>⬇ Descargar</a>
       </article>
     </section>
   </main>
 
   <script src="js/script.js"></script>
-  <script>
-    // ✅ JS para actualizar el enlace de descarga según selección
-document.getElementById("guia-download").addEventListener("click", function(e) {
-  e.preventDefault(); // evita navegación
+<script>
   const select = document.getElementById("guia-select");
-  const archivo = select.value;
+  const download = document.getElementById("guia-download");
 
-  const link = document.createElement("a");
-  link.href = archivo;
-  link.download = archivo.split("/").pop(); // extrae el nombre del archivo
-  document.body.appendChild(link);
-  link.click();
-  document.body.removeChild(link);
-});
-  </script>
+  // Cuando cambie la selección, actualiza el enlace
+  select.addEventListener("change", () => {
+    download.href = select.value;
+  });
+
+  // Opcional: forzar apertura en nueva pestaña en lugar de descarga directa
+  download.addEventListener("click", (e) => {
+    e.preventDefault();
+    window.open(select.value, "_blank"); 
+  });
+</script>
 </body>
 </html>
